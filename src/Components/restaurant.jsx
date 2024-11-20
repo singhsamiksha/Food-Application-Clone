@@ -6,6 +6,7 @@ function Restaurant() {
     const restaurants = [
         { 
             link: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/f996b31033fd07603bfb28cb4e526683", 
+            price: "ITEMS AT ₹149",
             name: "Chinese Wok", 
             rating: 4.0, 
             time: "45-50 min", 
@@ -14,6 +15,7 @@ function Restaurant() {
         },
         { 
             link: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/2ce18342-6c04-4ebc-9725-788819ddaa56_107452.JPG", 
+            price: "ITEMS AT ₹199",
             name: "Chaayos Chai+Snacks=Relax", 
             rating: 4.6, 
             time: "35-40 min", 
@@ -22,6 +24,7 @@ function Restaurant() {
         },
         { 
             link: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/11/5/0c39b5c3-e722-4b4a-853f-ddb5b21e9e74_804724.JPG", 
+            price: "50% OFF",
             name: "KFC", 
             rating: 4.6, 
             time: "35-40 min", 
@@ -44,6 +47,7 @@ function Restaurant() {
                     <RestaurantCard 
                         key={index} 
                         link={item.link} 
+                        price={item.price}
                         name={item.name} 
                         rating={item.rating} 
                         time={item.time} 

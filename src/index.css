@@ -73,7 +73,7 @@ hr{
   background-color:rgba(0, 0, 0, 0.1); 
 }
 
-.restaurant-cards{
+.restaurant-cards, #restaurantList{
   margin: 0px 150px;
   display: flex;
   justify-content: space-around;
@@ -115,6 +115,38 @@ p {
 #price{
   display: none;
 }
+
+.AllRestaurants h2 {
+  margin: 0px 150px;
+}
+
+#filterButtons{
+  margin: 30px 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#searchBar{
+  width: 400px;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border-radius: 20px;
+}
+button{
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+
+}
+
+#restaurantList{
+  flex-wrap: wrap;
+}
+
+
+
+
 
 
 

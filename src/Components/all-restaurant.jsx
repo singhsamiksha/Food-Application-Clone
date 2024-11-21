@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import RestaurantCard from "./restaurant-card";
 
 function AllRestaurants() {
+    const [searchTerm, setSearchTerm] = useState("");
     const restaurants = [
         { 
             link: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/zgxbigsbfkwk9rcf7kfp", 
@@ -58,31 +59,50 @@ function AllRestaurants() {
             location: "Karkardooma"
         }
     ];
+
+    // Filter the restaurants based on the search term
+    const searchedRestaurants = restaurants.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    console.log(searchedRestaurants);
+
+    // Handle the input change
+    const handleSearch = (e) => {
+        setSearchTerm(e.target.value);
+    };
+
     return (
         <>
             <div className="AllRestaurants">
                 <hr />
                 <h2><b>Restaurants with online food delivery in Delhi</b></h2>
                 <div id="filterButtons">
-                    <input type="text" placeholder="Search Here" id="searchBar" />
+                    <input 
+                        type="text" 
+                        placeholder="Search Here" 
+                        id="searchBar" 
+                        value={searchTerm} 
+                        onChange={handleSearch} 
+                    />
                     <button className="filterButton">Fast Delivery</button>
                     <button className="filterButton">Rating 4+</button>
                     <button className="filterButton">Less than ₹250</button>
                     <button className="filterButton">Offers</button>
                 </div>
                 <div id="restaurantList">
-                {restaurants.map((item, index) => (
-                    <RestaurantCard 
-                        key={index} 
-                        link={item.link} 
-                        price={item.price}
-                        name={item.name} 
-                        rating={item.rating} 
-                        time={item.time} 
-                        cuisine={item.cuisine} 
-                        location={item.location} 
-                    />
-                ))}
+                    {searchedRestaurants.map((item, index) => (
+                        <RestaurantCard 
+                            key={index} 
+                            link={item.link} 
+                            price={item.price}
+                            name={item.name} 
+                            rating={item.rating} 
+                            time={item.time} 
+                            cuisine={item.cuisine} 
+                            location={item.location} 
+                        />
+                    ))}
                 </div>
             </div>
         </>
